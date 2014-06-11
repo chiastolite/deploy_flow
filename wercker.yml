@@ -5,3 +5,9 @@ build:
   steps:
     - bundle-install
     - rails-database-yml
+    - script:
+        name: db migration
+        code: RAILS_ENV=test bundle exec rake db:create db:migrate
+    - script:
+        name: rspec
+        code: bundle exec rake spec
